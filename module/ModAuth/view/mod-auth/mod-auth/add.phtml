@@ -1,0 +1,14 @@
+ <?php
+ // module/ModAuth/view/modAuth/modAuth/add.phtml:
+
+ $title = 'Inscription';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php
+ $form->setAttribute('action', $this->url('modAuth', array('action' => 'add')));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formCollection($form);
+ echo $this->form()->closeTag();

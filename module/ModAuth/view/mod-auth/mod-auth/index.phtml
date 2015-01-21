@@ -1,0 +1,31 @@
+<?php
+ // module/ModAuth/view/modAuth/modAuth/index.phtml:
+
+ $title = 'My modAuths';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+     <a href="<?php echo $this->url('modAuth', array('action'=>'add'));?>">Add new modAuth</a>
+ </p>
+
+ <table class="table">
+ <tr>
+     <th>Title</th>
+     <th>Artist</th>
+     <th>&nbsp;</th>
+ </tr>
+ <?php foreach ($modAuths as $modAuth) : ?>
+ <tr>
+     <td><?php echo $this->escapeHtml($modAuth->user_name);?></td>
+     <td><?php echo $this->escapeHtml($modAuth->pass_word);?></td>
+     <td><img src="<?php echo $this->escapeHtml($modAuth->artist);?>" alt="Mountain View" style="width:304px;height:228px"></td>
+     <td>
+         <a href="<?php echo $this->url('modAuth',
+             array('action'=>'edit', 'id' => $modAuth->id));?>">Edit</a>
+         <a href="<?php echo $this->url('modAuth',
+             array('action'=>'delete', 'id' => $modAuth->id));?>">Delete</a>
+     </td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

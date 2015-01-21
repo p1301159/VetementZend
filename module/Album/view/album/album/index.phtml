@@ -1,0 +1,38 @@
+
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Produits';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('album', array('action' => 'add')); ?>">Ajouter un produit</a>
+</p>
+
+<table>
+<tr>
+    <?php foreach ($albums as $album) : ?>
+         
+    <td class="produit">
+        
+        <?php echo $this->escapeHtml($album->title); ?><br/>
+        <img src="<?php echo $this->escapeHtml($album->image); ?>" alt="<?php echo $this->escapeHtml($album->image); ?>"><br/>
+        
+        <p>description :</p> 
+         <?php echo $this->escapeHtml($album->artist); ?><br/>
+         
+         <p>quantité : <?php echo $this->escapeHtml($album->quantite);?> </p><br/>
+         <p>prix : <?php echo $this->escapeHtml($album->prix);?>€</p>
+       
+                <a href="<?php echo $this->url('album', array('action' => 'edit', 'id' => $album->id));
+    ?>">Edit</a>
+                <a href="<?php echo $this->url('album', array('action' => 'delete', 'id' => $album->id));
+    ?>">Delete</a>
+            </td>
+
+    <?php endforeach; ?>  
+</tr>
+</table>
+
+
