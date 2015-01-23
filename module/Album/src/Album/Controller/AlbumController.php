@@ -117,4 +117,15 @@
          }
          return $this->albumTable;
      }
+     
+     public function listeAlbumJsonAction()
+     {
+         $result =  $this->getAlbumTable()->fetchAll();
+         $data = array();
+         foreach ($result as $row) {
+             array_push($data, $row);
+         }
+         echo json_encode($data);
+         exit();
+     }
  }

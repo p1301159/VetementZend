@@ -12,3 +12,10 @@ Test the example with : http://localhost/projetWeb2/public/success
 
 identifiant=test
 mot de passe=test
+
+
+
+
+Pour le .json:
+la fonction est dans AlbumController.php
+sous le nom de listeAlbumJsonAction
